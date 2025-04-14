@@ -26,8 +26,8 @@ export class TaskService {
   addtask(newtask: Task) {
     throw new Error('Method not implemented.');
   }
-  private tasksUrl = 'http://localhost:8000/api/tasks/';
-  private statusesUrl = 'http://localhost:8000/api/statuses/';
+  private tasksUrl = 'https://backend-03ah.onrender.com/api/tasks/';
+  private statusesUrl = 'https://backend-03ah.onrender.com/api/statuses/';
 
   constructor(private http: HttpClient) { }
 
