@@ -1,0 +1,39 @@
+<h2  mat-dialog-title style="background-color: grey">{{isEditMode ? 'Edit Task' : 'Add New Task'}} </h2> 
+<form [formGroup]="taskForm" (ngSubmit)="onSubmit()" style="background-color: grey">
+  <div mat-dialog-content >
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Title</mat-label>
+      <input matInput formControlName="title" required>
+      <mat-error *ngIf="taskForm.controls['title'].hasError('required')">
+        Title is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Description</mat-label>
+      <textarea matInput formControlName="description" rows="4" required></textarea>
+      <mat-error *ngIf="taskForm.controls['description'].hasError('required')">
+        Description is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width" style="background-color: grey" >
+      <mat-label tyle="background-color: grey">Status</mat-label>
+      <mat-select formControlName="status" required style="background-color: grey">
+        <mat-option *ngFor="let status of data.statuses" [value]="status.id" style="background-color: grey">
+          {{status.name}}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="taskForm.controls['status'].hasError('required')">
+        Status is required
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <div mat-dialog-actions align="end">
+    <button mat-button type="button" (click)="onCancel()">Cancel</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="taskForm.invalid">
+      {{isEditMode ? 'Update' : 'Create'}}
+    </button>
+  </div>
+</form>

@@ -1,0 +1,24 @@
+<!-- src/app/components/header/header.component.html -->
+<header class="app-header">
+    <div class="logo">
+      <a routerLink="/"><img src="https://usercontent.one/wp/unitedshuttles.nl/wp-content/uploads/2020/07/TU_Delft_logo_wit2.png?media=1741183580" alt="Tu Delft"></a>
+    </div>
+    
+    <nav class="main-nav">
+      <ng-container *ngIf="currentUser; else unauthenticatedNav">
+        <ul>
+          <li><a href="javascript:void(0)" (click)="logout()">Logout</a></li>
+          <li class="username">Welcome, {{ currentUser.username }}!</li>
+        </ul>
+      </ng-container>
+      
+      <ng-template #unauthenticatedNav>
+        <div class="header-list">
+          <ul>
+            <li><a routerLink="/login">Login</a></li>
+            <li><a routerLink="/register">Register</a></li>
+          </ul>
+        </div>
+      </ng-template>
+    </nav>
+  </header>

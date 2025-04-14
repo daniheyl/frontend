@@ -1,0 +1,64 @@
+/* src/app/components/task-list/task-list.component.css */
+
+
+html {
+  color-scheme: light dark;
+
+}
+
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+  }
+  
+  .task-table {
+    margin-top: 20px;
+    width: 100%;
+    overflow: auto;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  }
+  
+  .task-title {
+    font-size: 24px;
+    color: var(--tu-delft-blue);
+    margin-bottom: 16px;
+  }
+  
+  .add-button {
+    background-color: var(--tu-delft-blue) !important;
+    color: white !important;
+    margin-bottom: 16px;
+  }
+  
+  .status-chip {
+    background-color: var(--tu-delft-blue);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 16px;
+    font-size: 12px;
+    display: inline-block;
+  }
+  
+  .action-buttons {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .action-buttons .edit {
+    color: var(--tu-delft-blue);
+  }
+  
+  .action-buttons .delete {
+    color: #f44336;
+  }
+  
+  .empty-state {
+    text-align: center;
+    padding: 32px;
+    color: var(--tu-delft-grey);
+  }
+  
+

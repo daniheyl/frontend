@@ -1,0 +1,46 @@
+<!-- src/app/components/profile/profile.component.html -->
+<div class="profile-container">
+    <h2>Your Profile</h2>
+    
+    <div *ngIf="loading" class="loading">Loading your profile...</div>
+    
+    <form *ngIf="!loading && user" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" formControlName="username" class="form-control" [disabled]="true">
+        <small class="form-text text-muted">Username cannot be changed</small>
+      </div>
+      
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input 
+          type="email" 
+          id="email" 
+          formControlName="email" 
+          class="form-control"
+          [ngClass]="{'is-invalid': profileForm.get('email')?.touched && profileForm.get('email')?.invalid}"
+        >
+        <div *ngIf="profileForm.get('email')?.touched && profileForm.get('email')?.invalid" class="error-message">
+          Please enter a valid email address
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="first_name">First Name</label>
+        <input type="text" id="first_name" formControlName="first_name" class="form-control">
+      </div>
+      
+      <div class="form-group">
+        <label for="last_name">Last Name</label>
+        <input type="text" id="last_name" formControlName="last_name" class="form-control">
+      </div>
+      
+      <div *ngIf="message" class="alert" [ngClass]="{'alert-success': !message.includes('Failed'), 'alert-danger': message.includes('Failed')}">
+        {{ message }}
+      </div>
+      
+      <button type="submit" [disabled]="profileForm.invalid || loading" class="btn btn-primary">
+        Update Profile
+      </button>
+    </form>
+  </div>
