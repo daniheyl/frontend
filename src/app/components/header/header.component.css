@@ -1,57 +1,105 @@
-/* src/app/components/header/header.component.scss */
 .app-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #f8f9fa;
-    padding-right: 18em;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  background-color: #00A6D6;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: relative;
+  width: 100%;
+}
+
+.app-header .header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.app-header .logo img {
+  width: 7em;
+  padding: 10px 0;
+  display: block;
+}
+
+.app-header .menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 1rem;
+  z-index: 1001;
+}
+
+.app-header .menu-toggle span {
+  display: block;
+  width: 25px;
+  height: 2px;
+  background: white;
+  margin: 5px 0;
+  transition: all 0.3s ease;
+}
+
+.app-header .main-nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.app-header .main-nav li {
+  margin-left: 1.5rem;
+}
+
+.app-header .main-nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+  display: block;
+  padding: 1rem 0;
+}
+
+.app-header .main-nav a:hover {
+  color: #007bff;
+}
+
+.app-header .main-nav .username {
+  font-weight: 500;
+  color: white;
+  padding: 1rem 0;
+  display: block;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .app-header .menu-toggle {
+    display: block;
+  }
+
+  .app-header .main-nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
     background-color: #00A6D6;
-  }
-  img{
-    width: 7em;
-    justify-content: left;
-    align-items: left;
-    margin: 10px auto;
-    max-width: 1200px;
-    padding: 0 20px;
-    padding-left: 12em;
+    transition: right 0.3s ease;
+    z-index: 1000;
+    padding-top: 60px;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.1);
   }
 
-  .header-list{
-    padding-right: 10em;
+  .app-header .main-nav.active {
+    right: 0;
   }
 
-  
-  
-  .logo a {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #333;
-    text-decoration: none;
+  .app-header .main-nav ul {
+    flex-direction: column;
+    padding: 0 1rem;
   }
-  
-  .main-nav ul {
-    display: flex;
-    list-style: none;
+
+  .app-header .main-nav li {
+    margin: 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
   }
-  
-  .main-nav li {
-    margin-left: 1.5rem;
-  }
-  
-  .main-nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s;
-  }
-  
-  .main-nav a:hover, .main-nav a.active {
-    color: #007bff;
-  }
-  
-  .username {
-    font-weight: 500;
-    color: white;
-  }
+}
